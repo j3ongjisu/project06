@@ -1,0 +1,440 @@
+.inner {
+  /* 반응형 사이즈 */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid transparent;
+  z-index: 999;
+}
+
+.header.on {
+  border-bottom: 1px solid #ddd;
+}
+
+/* js 메뉴 고정 */
+.header.on .header_wrap {
+  height: 70px;
+  transition: 0.5s;
+}
+
+.header .header_wrap {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.header .gnb {
+  margin: 0 0 0 auto;
+}
+
+.header .gnb .sub_menu {
+  font-weight: 500;
+}
+
+.header .gnb>ul {
+  display: flex;
+  gap: 40px;
+}
+
+.header .service {
+  margin: 0 0 0 50px;
+  font-size: 20px;
+}
+
+.header .service i {
+  margin: 0 0 0 5px;
+}
+
+.header .gnb>ul>li {
+  position: relative;
+}
+
+.header .sub {
+  overflow: hidden;
+
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 999;
+
+  font-size: 14px;
+  text-align: center;
+  width: 150%;
+  line-height: 40px;
+
+  transition: 0.2s;
+}
+
+/* header01에서 hover 위치 조정으로 다단 메뉴 전체 나오게 하기 */
+.header .gnb:hover>ul>li .sub {
+  height: 200px;
+}
+
+.header .gnb::before {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 0px;
+  /* border-top: 1px solid #ddd; */
+  background: #fff;
+  z-index: 999;
+
+  transition: 0.2s;
+
+}
+
+.header .gnb:hover::before {
+  height: 200px;
+  border-top: 1px solid #ddd;
+}
+
+.header .search {
+  margin: 0 0 0 50px;
+}
+
+.header .gnb>ul {
+  display: flex;
+  gap: 40px;
+}
+
+.header .gnb>ul>li {
+  position: relative;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.header .gnb>ul>li~li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  width: 1px;
+  height: 12px;
+  background: #ddd;
+  transform: translate(0, -50%);
+}
+
+.header .search input[type="text"] {
+  width: 100px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #666;
+
+  font-size: 14px;
+  font-family: 'Noto Sans KR';
+
+  /* 검색어 너비 늘어나게 하는 효과 */
+  transition: width 0.5s;
+}
+
+.header .search input[type="text"]:focus {
+  width: 160px;
+}
+
+.header .search input[type="text"]::placeholder {
+  color: #ddd;
+}
+
+.header .search input[type="text"]:focus::placeholder {
+  color: transparent;
+}
+
+.header .search button {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+/* ---------- main visual ----------- */
+
+.main_visual {
+  position: relative;
+  height: calc(100vh - 101px);
+  overflow: hidden;
+  color: #fff;
+}
+
+.main_visual .itm {
+  position: relative;
+  min-height: 1000px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto 130%;
+}
+
+.main_visual .itm.on {
+  background-size: auto 100%;
+  transition: 4s;
+}
+
+.main_visual .itm .inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0, -50%);
+  margin: 0 0 0 -700px;
+}
+
+.main_visual .itm01 {
+  background-image: url(../images/issac_slide01.jpg);
+}
+
+.main_visual .itm02 {
+  background-image: url(../images/issac_slide01.jpg);
+}
+
+.main_visual .itm03 {
+  background-image: url(../images/issac_slide01.jpg);
+}
+
+
+.main_visual .menu {
+  position: absolute;
+  bottom: 200px;
+  left: 50%;
+  display: flex;
+  gap: 10px;
+
+  transform: translate(0, 0);
+  margin: 0 0 0 -700px;
+  padding: 0 15px;
+}
+
+.main_visual .menu li {
+  position: relative;
+  width: 100px;
+  height: 30px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.main_visual .menu li::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.main_visual .menu li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.main_visual .menu li.on::after {
+  width: 100%;
+  transition: 4s;
+}
+
+.main_visual .menu li a {
+  display: block;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.main_visual .menu li.on a {
+  color: rgba(255, 255, 255, 1);
+}
+
+.main_visual .arrows {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  transform: translate(-100%, -50%);
+  margin: 0 0 0 700px;
+  padding: 0 15px;
+  gap: 30px;
+
+}
+
+
+/* 스크롤 아래로 내리는 버튼 만들기 */
+.main_visual .scr {
+  position: absolute;
+  left: 50%;
+  bottom: 100px;
+
+  transform: translate(-100%, 0);
+  margin: 0 0 0 700px;
+  padding: 0 15px;
+
+  color: #fff;
+}
+
+.main_visual .slide_num {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+
+  transform: translate(-100%, 0);
+  margin: 0 0 0 700px;
+  padding: 0 15px;
+
+  color: #fff;
+}
+
+.main_visual .scr::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 15px;
+  width: 24px;
+  height: 40px;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.main_visual .scr::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: 26px;
+  width: 2px;
+  height: 10px;
+  background: #333;
+  border-radius: 1px;
+  animation: wheel 0.5s infinite;
+}
+
+@keyframes wheel {
+  0% {
+    transform: translate(0, 0);
+  }
+
+
+
+  100% {
+    transform: translate(0, 5px);
+  }
+}
+
+.main_visual .scr span {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  white-space: nowrap;
+  font-size: 14px;
+  text-transform: uppercase;
+  transform: translate(calc(-100% - 20px), 0);
+}
+
+
+
+
+.main_visual .arrows i {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.main_visual .arrows i:hover {
+  color: rgba(255, 255, 255, 1);
+  border: 2px solid rgba(255, 255, 255, 1);
+}
+
+
+/* ----------- main_product ---------- */
+
+.main_big_product {
+  padding: 100px 0;
+  position: relative;
+}
+
+.main_big_product .title h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.main_big_product .title p {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 19px;
+}
+
+.main_big_product .case {
+  overflow: hidden;
+}
+
+.main_big_product .product_slide2 {
+  margin: 0 -15px
+}
+
+.main_big_product .product_slide2 figure {
+  padding: 0 15px;
+}
+
+
+.main_big_product .arrows {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+
+  transform: translate(-50%, -50%);
+  max-width: 1400px;
+  width: 100%;
+
+  padding: 0 15px;
+}
+
+.main_big_product .arrows i {
+  padding: 20px 5px;
+  background: #fff;
+
+}
+
+
+
+
+/* 슬라이드 버튼 만들어주기 */
+.main_big_product .slick-dots {
+  text-align: center;
+  margin: 20px 0 0 0;
+}
+
+.main_big_product .slick-dots li {
+  display: inline-block;
+}
+
+.main_big_product .slick-dots button {
+  border: none;
+  outline: none;
+  width: 20px;
+  height: 20px;
+  background: #ddd;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 10px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+/* li에 slick-active가 적용되면 바뀌는 색깔 */
+.main_big_product .slick-dots li.slick-active button {
+  background: #333;
+}
