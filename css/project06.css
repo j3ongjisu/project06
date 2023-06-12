@@ -1,440 +1,317 @@
 .inner {
-  /* 반응형 사이즈 */
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
+
+
+
+/*top_bar*/
+.top_bar {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.top_bar .inner {
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    line-height: 30px;
+}
+
+.top_bar .customer {
+    font-size: 13px;
+    font-weight: 300;
+    display: flex;
+    margin: 0 0 0 auto;
+}
+
+.top_bar .customer li {
+    padding: 0 10px;
+    border-right: 1px solid #ddd;
+}
+
+
+
+
+/*header - 메뉴*/
 .header {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  border-bottom: 1px solid transparent;
-  z-index: 999;
+    border-bottom: 1px solid #ddd;
 }
 
-.header.on {
-  border-bottom: 1px solid #ddd;
+.header .inner {
+    display: flex;
+    /* align-items: center; */
+    height: 100px;
+    line-height: 100px;
 }
 
-/* js 메뉴 고정 */
-.header.on .header_wrap {
-  height: 70px;
-  transition: 0.5s;
-}
-
-.header .header_wrap {
-  display: flex;
-  align-items: center;
-  height: 100px;
+.header a {
+    display: block;
 }
 
 .header .gnb {
-  margin: 0 0 0 auto;
-}
-
-.header .gnb .sub_menu {
-  font-weight: 500;
+    margin: 0 0 0 auto;
 }
 
 .header .gnb>ul {
-  display: flex;
-  gap: 40px;
+    display: flex;
+    gap: 40px;
 }
 
 .header .service {
-  margin: 0 0 0 50px;
-  font-size: 20px;
+    margin: 0 0 0 50px;
 }
 
-.header .service i {
-  margin: 0 0 0 5px;
-}
 
 .header .gnb>ul>li {
-  position: relative;
+    position: relative;
 }
 
 .header .sub {
-  overflow: hidden;
+    /* 원래 position 뒤에 display가 위치함.
+    다단메뉴 할 때는 예외. */
+    display: none;
 
-  position: absolute;
-  top: 110px;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: 999;
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 999;
 
-  font-size: 14px;
-  text-align: center;
-  width: 150%;
-  line-height: 40px;
-
-  transition: 0.2s;
+    background: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 120px;
+    line-height: 40px;
 }
 
-/* header01에서 hover 위치 조정으로 다단 메뉴 전체 나오게 하기 */
-.header .gnb:hover>ul>li .sub {
-  height: 200px;
+.header .gnb>ul>li:hover .sub {
+    display: block;
 }
 
-.header .gnb::before {
-  content: "";
-  position: absolute;
-  top: 100px;
-  left: 0;
-  width: 100%;
-  height: 0px;
-  /* border-top: 1px solid #ddd; */
-  background: #fff;
-  z-index: 999;
-
-  transition: 0.2s;
-
+.header .sub>li~li {
+    border-top: 1px solid #ddd;
 }
 
-.header .gnb:hover::before {
-  height: 200px;
-  border-top: 1px solid #ddd;
+/*section 1 - mainVisual*/
+.mainVisual {}
+
+.mainVisual .itm {
+    height: 600px;
 }
 
-.header .search {
-  margin: 0 0 0 50px;
+.mainVisual .itm01 {
+    background: url(../images/slide01.jpg) no-repeat center center/cover;
 }
 
-.header .gnb>ul {
-  display: flex;
-  gap: 40px;
+.mainVisual .itm02 {
+    background: url(../images/slide02.jpg) no-repeat center center/cover;
 }
 
-.header .gnb>ul>li {
-  position: relative;
-  white-space: nowrap;
-  word-break: keep-all;
+.mainVisual .itm03 {
+    background: url(../images/slide03.jpg) no-repeat center center/cover;
 }
 
-.header .gnb>ul>li~li::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -20px;
-  width: 1px;
-  height: 12px;
-  background: #ddd;
-  transform: translate(0, -50%);
+.mainVisual .itm04 {
+    background: url(../images/slide04.jpg) no-repeat center center/cover;
 }
 
-.header .search input[type="text"] {
-  width: 100px;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #666;
-
-  font-size: 14px;
-  font-family: 'Noto Sans KR';
-
-  /* 검색어 너비 늘어나게 하는 효과 */
-  transition: width 0.5s;
+.mainVisual .itm05 {
+    background: url(../images/slide05.jpg) no-repeat center center/cover;
 }
 
-.header .search input[type="text"]:focus {
-  width: 160px;
+/* 슬라이드 도트 버튼 */
+.mainVisual .slick-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 999;
 }
 
-.header .search input[type="text"]::placeholder {
-  color: #ddd;
+.mainVisual .slick-dots>li {
+    display: inline-block;
+    padding: 5px 0;
+    cursor: pointer;
 }
 
-.header .search input[type="text"]:focus::placeholder {
-  color: transparent;
+.mainVisual .slick-dots>li button {
+    position: relative;
+    width: 80px;
+    height: 4px;
+    background: #ddd;
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 2px;
+
+    border: none;
+    outline: none;
+    font-size: 0;
 }
 
-.header .search button {
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 30px;
-  vertical-align: middle;
-}
-
-/* ---------- main visual ----------- */
-
-.main_visual {
-  position: relative;
-  height: calc(100vh - 101px);
-  overflow: hidden;
-  color: #fff;
-}
-
-.main_visual .itm {
-  position: relative;
-  min-height: 1000px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: auto 130%;
-}
-
-.main_visual .itm.on {
-  background-size: auto 100%;
-  transition: 4s;
-}
-
-.main_visual .itm .inner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(0, -50%);
-  margin: 0 0 0 -700px;
-}
-
-.main_visual .itm01 {
-  background-image: url(../images/issac_slide01.jpg);
-}
-
-.main_visual .itm02 {
-  background-image: url(../images/issac_slide01.jpg);
-}
-
-.main_visual .itm03 {
-  background-image: url(../images/issac_slide01.jpg);
-}
-
-
-.main_visual .menu {
-  position: absolute;
-  bottom: 200px;
-  left: 50%;
-  display: flex;
-  gap: 10px;
-
-  transform: translate(0, 0);
-  margin: 0 0 0 -700px;
-  padding: 0 15px;
-}
-
-.main_visual .menu li {
-  position: relative;
-  width: 100px;
-  height: 30px;
-  color: rgba(0, 0, 0, 0.3);
-}
-
-.main_visual .menu li::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.main_visual .menu li::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 4px;
-  background: rgba(255, 255, 255, 1);
-}
-
-.main_visual .menu li.on::after {
-  width: 100%;
-  transition: 4s;
-}
-
-.main_visual .menu li a {
-  display: block;
-  color: rgba(255, 255, 255, 0.4);
-}
-
-.main_visual .menu li.on a {
-  color: rgba(255, 255, 255, 1);
-}
-
-.main_visual .arrows {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-
-  display: flex;
-  flex-direction: column;
-
-  transform: translate(-100%, -50%);
-  margin: 0 0 0 700px;
-  padding: 0 15px;
-  gap: 30px;
+.mainVisual .slick-dots>li button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ff6347;
 
 }
 
+/*슬라이드 좌우 버튼*/
+.mainVisual .arrows {
+    position: absolute;
+    top: 41%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
 
-/* 스크롤 아래로 내리는 버튼 만들기 */
-.main_visual .scr {
-  position: absolute;
-  left: 50%;
-  bottom: 100px;
-
-  transform: translate(-100%, 0);
-  margin: 0 0 0 700px;
-  padding: 0 15px;
-
-  color: #fff;
+    max-width: 1700px;
+    width: 100%;
 }
 
-.main_visual .slide_num {
-  position: absolute;
-  left: 50%;
-  top: 100px;
+.mainVisual .arrows i {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 30px;
 
-  transform: translate(-100%, 0);
-  margin: 0 0 0 700px;
-  padding: 0 15px;
-
-  color: #fff;
-}
-
-.main_visual .scr::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 15px;
-  width: 24px;
-  height: 40px;
-  background: #fff;
-  border-radius: 20px;
-}
-
-.main_visual .scr::after {
-  content: "";
-  position: absolute;
-  top: 5px;
-  right: 26px;
-  width: 2px;
-  height: 10px;
-  background: #333;
-  border-radius: 1px;
-  animation: wheel 0.5s infinite;
-}
-
-@keyframes wheel {
-  0% {
-    transform: translate(0, 0);
-  }
-
-
-
-  100% {
-    transform: translate(0, 5px);
-  }
-}
-
-.main_visual .scr span {
-  position: absolute;
-  top: 13px;
-  left: 0;
-  white-space: nowrap;
-  font-size: 14px;
-  text-transform: uppercase;
-  transform: translate(calc(-100% - 20px), 0);
-}
-
-
-
-
-.main_visual .arrows i {
-  font-size: 30px;
-  color: rgba(255, 255, 255, 0.4);
-  padding: 15px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.main_visual .arrows i:hover {
-  color: rgba(255, 255, 255, 1);
-  border: 2px solid rgba(255, 255, 255, 1);
-}
-
-
-/* ----------- main_product ---------- */
-
-.main_big_product {
-  padding: 100px 0;
-  position: relative;
-}
-
-.main_big_product .title h2 {
-  font-size: 30px;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-}
-
-.main_big_product .title p {
-  font-size: 15px;
-  font-weight: 300;
-  line-height: 19px;
-}
-
-.main_big_product .case {
-  overflow: hidden;
-}
-
-.main_big_product .product_slide2 {
-  margin: 0 -15px
-}
-
-.main_big_product .product_slide2 figure {
-  padding: 0 15px;
-}
-
-
-.main_big_product .arrows {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  display: flex;
-  justify-content: space-between;
-
-  transform: translate(-50%, -50%);
-  max-width: 1400px;
-  width: 100%;
-
-  padding: 0 15px;
-}
-
-.main_big_product .arrows i {
-  padding: 20px 5px;
-  background: #fff;
+    width: 40px;
+    height: 90px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: 0.5s;
 
 }
 
+.mainVisual .arrows .left {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.mainVisual:hover .arrows .left {
+    opacity: 0.8;
+    transform: translate(30px, 0);
+}
+
+.mainVisual .arrows .right {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.mainVisual:hover .arrows .right {
+    opacity: 0.8;
+    transform: translate(-30px, 0);
+}
 
 
+/*section 2 - mainProduct*/
+.mainProduct {
+    position: relative;
+    padding: 100px 0;
+}
+
+.mainProduct .title h2 {
+    margin: 0 0 30px 0;
+    font-size: 40px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.mainProduct .case {
+    overflow: hidden;
+}
+
+.mainProduct .productSlide {
+    margin: 0 -15px
+}
+
+.mainProduct .productSlide figure {
+    padding: 0 15px;
+}
+
+.mainProduct .prdArrows {
+    position: absolute;
+    left: 50%;
+    top: 53%;
+    display: flex;
+    justify-content: space-between;
+
+    transform: translate(-50%, -50%);
+    max-width: 1400px;
+    width: 100%;
+
+    padding: 0 15px;
+}
+
+.mainProduct .prdArrows i {
+    padding: 20px 5px;
+    background: #ddd;
+}
 
 /* 슬라이드 버튼 만들어주기 */
-.main_big_product .slick-dots {
-  text-align: center;
-  margin: 20px 0 0 0;
+.mainProduct .slick-dots {
+    text-align: center;
+    margin: 20px 0 0 0;
 }
 
-.main_big_product .slick-dots li {
-  display: inline-block;
+.mainProduct .slick-dots li {
+    display: inline-block;
 }
 
-.main_big_product .slick-dots button {
-  border: none;
-  outline: none;
-  width: 20px;
-  height: 20px;
-  background: #ddd;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 10px;
-  margin: 0 2px;
-  cursor: pointer;
+.mainProduct .slick-dots button {
+    border: none;
+    outline: none;
+    width: 20px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 10px;
+    margin: 0 2px;
+    cursor: pointer;
 }
 
 /* li에 slick-active가 적용되면 바뀌는 색깔 */
-.main_big_product .slick-dots li.slick-active button {
-  background: #333;
+.mainProduct .slick-dots li.slick-active button {
+    background: #333;
+}
+
+/* ---------------section 3 - mainDelivery------------- */
+.mainDelivery {
+    padding: 100px 0;
+}
+
+
+/*to_top 버튼*/
+.to_top {
+    position: fixed;
+    bottom: 0px;
+    right: 100px;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.to_top.on {
+    bottom: 100px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.to_top i {
+    color: #fff;
+    background: tomato;
+    padding: 15px;
+    font-size: 25px;
+    border-radius: 50%;
+    cursor: pointer;
 }
