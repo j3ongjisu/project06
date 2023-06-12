@@ -1,9 +1,11 @@
 $(function () {
     $('.mainSlide').slick({
-        autoplay: true,
-        arrows: false,
-        fade: true,
         dots: true,
+        arrows: false,
+        autoplay: true,
+        fade: true,
+        pauseOnHover: false,
+        pauseOnFocus: false
     });
     // .mainVisual 좌우 화살표 슬라이드 작동 버튼
     $('.mainVisual .arrows .left').on('click', function () {

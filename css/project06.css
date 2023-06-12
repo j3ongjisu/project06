@@ -37,6 +37,10 @@
 
 /*header - 메뉴*/
 .header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    z-index: 1000;
     border-bottom: 1px solid #ddd;
 }
 
@@ -45,6 +49,11 @@
     /* align-items: center; */
     height: 100px;
     line-height: 100px;
+}
+
+.header .inner img {
+    width: 155px;
+    height: 34px;
 }
 
 .header a {
@@ -179,7 +188,6 @@
     background: rgba(0, 0, 0, 0.2);
     color: #fff;
     font-size: 30px;
-
     width: 40px;
     height: 90px;
     opacity: 0.5;
@@ -211,6 +219,7 @@
 }
 
 
+
 /*section 2 - mainProduct*/
 .mainProduct {
     position: relative;
@@ -230,11 +239,52 @@
 }
 
 .mainProduct .productSlide {
-    margin: 0 -15px
+    margin: 0 -15px;
 }
 
 .mainProduct .productSlide figure {
     padding: 0 15px;
+}
+
+.mainProduct .productSlide figure .img_box .img_num {
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background: rgba(0, 0, 0, 0.5);
+    display: block;
+    color: #fff;
+    text-align: center;
+    line-height: 32px;
+    z-index: 999;
+}
+
+.mainProduct .productSlide figure img {
+    margin: 0 0 15px 0;
+}
+
+.mainProduct .productSlide figure h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #111;
+}
+
+.mainProduct .productSlide figure .price_box {
+    display: flex;
+}
+
+.mainProduct .productSlide figure .price_box .price {
+    margin: 0 auto;
+}
+
+.mainProduct .productSlide figure .price_box .price .size_l {
+    color: #D9184B;
+}
+
+.mainProduct .productSlide figure .price_box .price .size_m {
+    color: #D9184B;
 }
 
 .mainProduct .prdArrows {
@@ -287,7 +337,81 @@
 /* ---------------section 3 - mainDelivery------------- */
 .mainDelivery {
     padding: 100px 0;
+    background: #eeeeee;
 }
+
+.mainDelivery .Delivery_wrap {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between
+}
+
+.mainDelivery .Delivery_wrap .ditm h2 {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    font-size: 42px;
+}
+
+.mainDelivery .Delivery_wrap .red {
+    color: #D9184B;
+}
+
+.mainDelivery .Delivery_wrap .blue {
+    color: #048ABF;
+}
+
+.mainDelivery .Delivery_wrap .ditm p {
+    font-size: 17px;
+    color: #888;
+}
+
+
+/* --------------- section 4 - mainBanner ------------- */
+
+
+.mainBanner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 15px;
+}
+
+.mainBanner .banner {}
+
+.mainBanner .banner_title {
+    text-align: left;
+}
+
+.mainBanner .banner_title h2 {
+    margin: 0 0 25px 0;
+    font-size: 40px;
+    font-weight: 700;
+
+}
+
+.mainBanner .banner_title p {
+    margin: 0 0 20px 0;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.mainBanner .banner {
+    display: flex;
+    gap: 30px;
+}
+
+.mainBanner .banner .bn_img {
+    margin: 0 0 20px 0;
+}
+
+.mainBanner .banner .bn_txt {
+    text-align: center;
+}
+
+
+
+
+
 
 
 /*to_top 버튼*/
@@ -309,7 +433,7 @@
 
 .to_top i {
     color: #fff;
-    background: tomato;
+    background: #048ABF;
     padding: 15px;
     font-size: 25px;
     border-radius: 50%;
