@@ -24,6 +24,7 @@ a {
 }
 
 img {
+    width: 100%;
     vertical-align: middle;
     /* 박스 안에 이미지 가두기 */
     max-width: 100%;
