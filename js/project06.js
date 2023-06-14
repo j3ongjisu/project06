@@ -7,6 +7,14 @@ $(function () {
             : $('.header').removeClass('on');
     });
 
+    // 768px 이하일 때 모바일 탭 메뉴 버튼 눌러짐
+    $('.mobile_btn').on('click', function () {
+        $(this).toggleClass('on');
+        $('.gnb').toggleClass('on');
+        $('.h1').toggleClass('on');
+    });
+
+
     $('.mainSlide').slick({
         dots: true,
         arrows: false,

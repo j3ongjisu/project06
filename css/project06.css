@@ -40,6 +40,94 @@
     outline: 1px solid;
 } */
 
+
+.mobile_btn {
+    display: none;
+}
+
+@media(max-width:768px) {
+    .mobile_btn {
+        display: block;
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        z-index: 999;
+
+        width: 30px;
+        height: 30px;
+        background: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+    }
+
+    .mobile_btn::before {
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 5px;
+        right: 5px;
+        height: 2px;
+        background: #333;
+    }
+
+    .mobile_btn::after {
+        content: "";
+        position: absolute;
+        bottom: 7px;
+        left: 5px;
+        right: 5px;
+        height: 2px;
+        background: #333;
+    }
+
+    .mobile_btn.on::before {
+        display: none;
+    }
+
+    .mobile_btn.on::after {
+        display: none;
+    }
+
+    .mobile_btn button {
+        border: none;
+        background: transparent;
+        outline: none;
+    }
+
+    .mobile_btn button::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        right: 5px;
+        height: 2px;
+        background: #333;
+        transform: translate(0, -50%);
+        transition: 0.5s;
+    }
+
+    .mobile_btn button::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        right: 5px;
+        height: 2px;
+        background: #333;
+        transform: translate(0, -50%);
+        transition: 0.5s;
+    }
+
+    .mobile_btn.on button::before {
+        transform: translate(0, -50%) rotate(45deg);
+    }
+}
+
+.mobile_btn.on button::after {
+    transform: translate(0, -50%) rotate(-45deg);
+}
+
+
 /*header - 메뉴*/
 .header {
     position: sticky;
@@ -47,6 +135,7 @@
     background: #fff;
     z-index: 1000;
     border-bottom: 1px solid #ddd;
+    white-space: nowrap;
 }
 
 .header.on {
@@ -72,8 +161,11 @@
     font-size: 0;
 }
 
+
+
 .header h1 img {
     height: 39px;
+    vertical-align: top;
 }
 
 .gnb {}
@@ -110,7 +202,7 @@
 
     padding: 15px 0;
     border-radius: 20px;
-    border: 2px solid var(--lc);
+    border: 1px solid var(--lc);
 
     opacity: 0;
     visibility: hidden;
@@ -142,7 +234,8 @@
 
 .login_area .member {
     display: flex;
-    gap: 30px;
+    font-size: 22px;
+    gap: 10px;
 }
 
 .login_area .member a {
@@ -171,6 +264,55 @@
 
 .header.on.login_area .member li~li::before {
     background: var(--dc);
+}
+
+
+@media(max-width:768px) {
+    .gnb {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 999;
+
+        background: #fff;
+        border-right: 1px solid #ddd;
+        width: calc(100% - 90px);
+        height: 100vh;
+
+        padding: 150px 30px 0 30px;
+    }
+
+    .gnb .sub_menu {
+        display: none;
+    }
+
+    .gnb.on {
+        left: 0;
+    }
+
+    .gnb>ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .gnb>ul a {
+        font-size: 15px;
+        padding: 10px 0;
+    }
+
+    .gnb>ul>li>a::after {
+        content: "\e907";
+        display: block;
+        line-height: 1;
+        font-family: xeicon;
+        float: right;
+        font-size: 10px;
+        background: #f9f9f9;
+        padding: 2px;
+        border-radius: 50%;
+
+    }
 }
 
 
@@ -313,9 +455,15 @@
     overflow: hidden;
 }
 
+.mainProduct .productSlide figure .img_box {
+
+    height: 460px;
+    border: 1px solid #ddd;
+}
+
 .mainProduct .productSlide figure .img_box .img_num {
     position: absolute;
-    top: 0;
+    top: 1px;
     width: 32px;
     height: 32px;
     background: rgba(0, 0, 0, 0.5);
@@ -364,13 +512,13 @@
 }
 
 .mainProduct .productSlide figure .img_box .cover_box .cover a {
-    padding: 7px 20px 3px 20px;
+    padding: 7px 22px 7px 22px;
     font-size: 13px;
     border: 1px solid #fff;
 }
 
 .mainProduct .productSlide figure .img_box .cover_box .cover a:hover {
-    padding: 7px 20px 3px 20px;
+    padding: 7px 22px 7px 22px;
     font-size: 13px;
     font-weight: 500;
     border: 1px solid #fff;
@@ -444,6 +592,10 @@
     background: #ddd;
 }
 
+.mainProduct .prdArrows i:hover {
+    background: #333;
+}
+
 /* 슬라이드 버튼 만들어주기 */
 .mainProduct .slick-dots {
     text-align: center;
@@ -469,7 +621,7 @@
 
 /* li에 slick-active가 적용되면 바뀌는 색깔 */
 .mainProduct .slick-dots li.slick-active button {
-    background: #333;
+    background: #048ABF;
 }
 
 /* ---------------section 3 - mainDelivery------------- */
@@ -510,9 +662,13 @@
     width: 40px;
     height: 40px;
     margin-left: 15px;
-    background: #999;
+    background: #ddd;
     border-radius: 100%;
     border: 0;
+}
+
+.mainDelivery .Delivery_wrap .ditm span:hover {
+    background: #333
 }
 
 .mainDelivery .Delivery_wrap .ditm span::before {
@@ -611,12 +767,13 @@
 
 .mainBackground .bg_box {
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(60%, 125%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: 'Nanum Myeongjo', serif;
-    text-align: start;
-
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
 }
 
 .mainBackground h2 {
@@ -716,11 +873,7 @@
     background: url(../images/domino_logo.png) no-repeat center center/cover;
 }
 
-.footer .ft .tel {
-    margin-left: 13px;
-    font-size: 30px;
-    font-weight: 600;
-}
+
 
 .footer .fm {
     border-bottom: 1px solid #eee;
@@ -790,36 +943,11 @@
 .footer .sns i {
     padding: 7px;
     font-size: 20px;
-    background: #ff5e37;
+    background: #048ABF;
+    color: #fff;
     line-height: 20px;
 }
 
-
-
-.to_top {
-    position: fixed;
-    top: 792px;
-    right: 100px;
-    z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.5s;
-}
-
-.to_top.on {
-    bottom: 100px;
-    visibility: visible;
-    opacity: 1;
-}
-
-.to_top i {
-    color: #fff;
-    border-radius: 50%;
-    background: #ff5e37;
-    padding: 15px;
-    font-size: 25px;
-    cursor: pointer;
-}
 
 
 /*to_top 버튼*/
