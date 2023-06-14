@@ -4,6 +4,11 @@
     padding: 0 15px;
 }
 
+:root {
+    --lc: #dddddd;
+    --wc: #ffffff;
+    --dc: #444444;
+}
 
 /*top_bar*/
 .top_bar {
@@ -31,7 +36,9 @@
 }
 
 
-
+/* * {
+    outline: 1px solid;
+} */
 
 /*header - 메뉴*/
 .header {
@@ -42,77 +49,130 @@
     border-bottom: 1px solid #ddd;
 }
 
-.header .inner {
+.header.on {
+    background: var(--wc);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+}
+
+.header .header_wrap {
     display: flex;
-    /* align-items: center; */
+    justify-content: space-between;
+    align-items: center;
     height: 100px;
-    line-height: 100px;
+
+    transition: 0.5s;
 }
 
-.header .inner img {
-    width: 155px;
-    height: 34px;
+.header.on .header_wrap {
+    height: 80px;
 }
 
-.header a {
-    display: block;
+.header h1 {
+    font-size: 0;
 }
 
-.header .gnb {
-    margin: 0 0 0 auto;
+.header h1 img {
+    height: 39px;
 }
 
+.gnb {}
 
-.header .gnb>ul {
+
+.gnb .main_menu {
     display: flex;
-    gap: 40px;
 }
 
-.header .gnb>ul .menu {
-    font-size: 18px;
-    font-weight: 500;
-    color: #555;
-}
-
-.header .gnb .sub {
-    font-size: 15px;
-}
-
-.header .service {
-    font-size: 20px;
-    margin: 0 0 0 50px;
-}
-
-
-.header .gnb>ul>li {
+.gnb .main_menu>li {
     position: relative;
+    padding: 0 30px;
 }
 
-.header .sub {
-    /* 원래 position 뒤에 display가 위치함.
-    다단메뉴 할 때는 예외. */
-    display: none;
+.gnb .main_menu a {
+    display: block;
+    color: var(--dc);
+    font-size: 18px;
+    line-height: 120px;
+}
 
+.header.on .gnb .main_menu a {
+    color: var(--dc);
+}
+
+.gnb .main_menu .sub_menu {
     position: absolute;
-    top: 80px;
+    top: 130px;
     left: 50%;
     transform: translate(-50%, 0);
-    z-index: 999;
-
-    background: #fff;
-    border: 1px solid #ddd;
+    background: var(--wc);
+    width: 180px;
     text-align: center;
-    width: 120px;
+
+    padding: 15px 0;
+    border-radius: 20px;
+    border: 2px solid var(--lc);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.5s;
+}
+
+.gnb .main_menu>li:hover .sub_menu {
+    top: 100px;
+
+    opacity: 1;
+    visibility: visible;
+}
+
+.header.on .gnb .main_menu>li:hover:hover .sub_menu {
+    top: 90px;
+}
+
+.gnb .sub_menu li~li {
+    border-top: 1px solid var(--lc);
+}
+
+.header .gnb .sub_menu a {
+    display: block;
+    color: var(--dc);
+    font-size: 15px;
     line-height: 40px;
 }
 
-.header .gnb>ul>li:hover .sub {
-    display: block;
+.login_area .member {
+    display: flex;
+    gap: 30px;
 }
 
-.header .sub>li~li {
-    border-top: 1px solid #ddd;
+.login_area .member a {
+    font-size: 15px;
+    color: var(--wc);
 }
+
+.header.on .login_area .member a {
+    color: var(--dc);
+}
+
+.login_area .member li {
+    position: relative;
+}
+
+.login_area .member li~li::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -15px;
+    width: 2px;
+    height: 2px;
+    transform: translate(-50%, -50%);
+    background: var(--wc);
+}
+
+.header.on.login_area .member li~li::before {
+    background: var(--dc);
+}
+
 
 /*section 1 - mainVisual*/
 .mainVisual {}
@@ -178,7 +238,7 @@
 /*슬라이드 좌우 버튼*/
 .mainVisual .arrows {
     position: absolute;
-    top: 42%;
+    top: 39%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
@@ -268,10 +328,10 @@
 
 .mainProduct .productSlide figure .img_box .cover_box .cover {
     position: absolute;
-    inset: 0 auto auto 100%;
+    inset: 0 auto 100% auto;
 
     width: 50%;
-    height: 84%;
+    height: 370px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -282,25 +342,42 @@
     color: #fff;
     padding: 50px 30px;
     transition: 0.5s;
-}
 
-.mainProduct .productSlide figure .img_box .cover_box .cover h3 {
-    margin: 0 0 20px 0;
-    font-size: 14px;
-}
-
-.mainProduct .productSlide figure .img_box .cover_box .cover p {
-    margin: 0 0 30px 0;
-    font-size: 14px;
-}
-
-.mainProduct .productSlide figure .img_box .cover_box .cover a {
-    font-size: 13px;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .mainProduct .productSlide figure:hover .img_box .cover_box .cover {
-    inset: 0 auto auto 0;
+    opacity: 1;
+    visibility: visible;
 }
+
+.mainProduct .productSlide figure .img_box .cover_box .cover h3 {
+    margin: 0 0 15px 0;
+    font-size: 15px;
+}
+
+.mainProduct .productSlide figure .img_box .cover_box .cover p {
+    margin: 0 0 40px 0;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.mainProduct .productSlide figure .img_box .cover_box .cover a {
+    padding: 7px 20px 3px 20px;
+    font-size: 13px;
+    border: 1px solid #fff;
+}
+
+.mainProduct .productSlide figure .img_box .cover_box .cover a:hover {
+    padding: 7px 20px 3px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid #fff;
+    color: #eeeeee;
+    background: rgba(255, 255, 255, 0.3);
+}
+
 
 .mainProduct .productSlide figure img {
     margin: 0 0 15px 0;
@@ -433,7 +510,7 @@
     width: 40px;
     height: 40px;
     margin-left: 15px;
-    background: #777;
+    background: #999;
     border-radius: 100%;
     border: 0;
 }
@@ -536,7 +613,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    transform: translate(50%, 120%);
+    transform: translate(60%, 125%);
     font-family: 'Nanum Myeongjo', serif;
     text-align: start;
 
@@ -620,7 +697,129 @@
 }
 
 
+/* footer */
+.footer {
+    border-top: 1px solid #eee;
+    background: #fff;
+    color: #555;
+}
 
+.footer .ft {
+    width: 176px;
+    height: 39px;
+}
+
+.footer .ft .ft_logo {
+    display: inline-block;
+    width: 176px;
+    height: 39px;
+    background: url(../images/domino_logo.png) no-repeat center center/cover;
+}
+
+.footer .ft .tel {
+    margin-left: 13px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.footer .fm {
+    border-bottom: 1px solid #eee;
+}
+
+.footer .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.footer .content ul {
+    display: flex;
+    align-items: center;
+}
+
+.footer .content li strong {
+    font-weight: 600;
+}
+
+.footer .content .customer li~li::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 11px;
+    background: #ccc;
+    margin: 0 15px;
+}
+
+.footer address {
+    font-size: 14px;
+    font-style: normal;
+}
+
+.footer .content li address {
+    display: inline-block;
+}
+
+.footer .content address li~li::before {
+    content: "";
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background: #ccc;
+    margin: 0 5px;
+}
+
+.footer .sns {
+    gap: 4px;
+}
+
+.footer .link {
+    gap: 10px;
+}
+
+/* #fl {
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 5px 20px;
+    background: #369;
+    color: #fff;
+} */
+
+
+
+.footer .sns i {
+    padding: 7px;
+    font-size: 20px;
+    background: #ff5e37;
+    line-height: 20px;
+}
+
+
+
+.to_top {
+    position: fixed;
+    top: 792px;
+    right: 100px;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+}
+
+.to_top.on {
+    bottom: 100px;
+    visibility: visible;
+    opacity: 1;
+}
+
+.to_top i {
+    color: #fff;
+    border-radius: 50%;
+    background: #ff5e37;
+    padding: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
 
 
 /*to_top 버튼*/
