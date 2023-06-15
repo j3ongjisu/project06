@@ -55,6 +55,16 @@ $(function () {
     });
 
 
+    // history tab 메뉴
+    $('.history_menu li').on('click', function (e) {
+        e.preventDefault();
+        let idx = $(this).index();
+        $('.history_content li').eq(idx).addClass('on').siblings().removeClass('on');
+
+    });
+
+
+
     //to_top
     //to_top 스크롤 위로 올리기
     $('.to_top').on('click', function () {
