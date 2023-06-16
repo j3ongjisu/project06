@@ -1,14 +1,15 @@
+:root {
+    --lc: #dddddd;
+    --wc: #ffffff;
+    --dc: #444444;
+}
+
 .inner {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
-:root {
-    --lc: #dddddd;
-    --wc: #ffffff;
-    --dc: #444444;
-}
 
 /*top_bar*/
 .top_bar {
@@ -116,7 +117,7 @@
 
 .gnb .main_menu a:hover {
     color: #048ABF;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .header.on .gnb .main_menu a {
@@ -172,7 +173,7 @@
 
 .header .gnb .sub_menu a:hover {
     color: #048ABF;
-    font-weight: 600;
+    font-weight: 300;
 
 }
 
@@ -351,7 +352,7 @@
     left: 50%;
     transform: translate(-50%, 0);
     width: 50px;
-    height: 3px;
+    height: 1px;
     background: #D9184B;
 }
 
@@ -684,7 +685,7 @@
     left: 50%;
     transform: translate(-50%, 0);
     width: 50px;
-    height: 3px;
+    height: 1px;
     background: #D9184B;
 }
 
@@ -746,7 +747,7 @@
     left: 50%;
     transform: translate(-50%, 0px);
     width: 50px;
-    height: 3px;
+    height: 1px;
     background: #D9184B;
 }
 
@@ -784,7 +785,7 @@
 }
 
 .mainEvent .event .eventMenu li a:hover {
-    font-weight: 600;
+    font-weight: 500;
     color: #048ABF;
 }
 
@@ -891,6 +892,7 @@
 
 .footer .fm .ft_logo {
     display: inline-block;
+    margin: 0 0 15px 0;
     width: 176px;
     height: 39px;
     background: url(../images/domino_logo.png) no-repeat center center/cover;
@@ -942,7 +944,7 @@
     width: 1px;
     height: 10px;
     background: #ccc;
-    margin: 0 5px;
+    margin: 0 auto;
 }
 
 .footer .sns {
@@ -1255,7 +1257,7 @@
         left: 50%;
         transform: translate(-50%, 0);
         width: 50px;
-        height: 3px;
+        height: 1px;
         background: #048ABF;
     }
 
