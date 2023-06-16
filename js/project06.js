@@ -56,10 +56,10 @@ $(function () {
 
 
     // history tab 메뉴
-    $('.history_menu li').on('click', function (e) {
+    $('.eventMenu li').on('click', function (e) {
         e.preventDefault();
         let idx = $(this).index();
-        $('.history_content li').eq(idx).addClass('on').siblings().removeClass('on');
+        $('.eventContent li').eq(idx).addClass('on').siblings().removeClass('on');
 
     });
 
