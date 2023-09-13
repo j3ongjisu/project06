@@ -18,7 +18,7 @@ $(function () {
     $('.mainSlide').slick({
         dots: true,
         arrows: false,
-        //autoplay: true,
+        autoplay: true,
         fade: true,
         pauseOnHover: false,
         pauseOnFocus: false
